@@ -47,7 +47,7 @@
   <body>
     <!-- Navigation Section Start -->
     <section class="border-b border-[#E9E9E9]">
-      <div class="mx-auto container flex items-center justify-between py-4">
+      <div class="mx-auto px-20 flex items-center justify-between py-4">
         <div class="flex items-center gap-4">
           <img class="w-9" src="./assets/github-logo.png" alt="GitHub Logo" />
           <h1 class="text-2xl text-[#1F2937] font-semibold">
@@ -85,8 +85,63 @@
     </section>
     <!-- Navigation Section End-->
 
+    <main class="bg-[#F8FAFC] h-screen">
+      <!-- Button Section Start -->
+      <section class="pt-16">
+        <div
+          class="mx-auto container mb-4 flex gap-2 p-6 bg-white rounded-lg shadow"
+        >
+          <div id="all_btn" class="btn btn-primary w-32 font-semibold">All</div>
+          <div
+            id="open_btn"
+            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white border-[#E4E4E7]"
+          >
+            Open
+          </div>
+          <div
+            id="closed_btn"
+            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white border-[#E4E4E7]"
+          >
+            Closed
+          </div>
+        </div>
+      </section>
+      <!-- Button Section End -->
+
+      <!-- Issues Count Section Start -->
+      <section>
+        <div
+          class="mx-auto container flex justify-between items-center p-6 bg-white rounded-t-lg shadow borber-b border-[#E4E4E7]"
+        >
+          <div class="flex gap-2">
+            <img
+              class="p-2.5 bg-[#ECE4FF] rounded-full"
+              src="./assets/Aperture.png"
+              alt=""
+            />
+            <div class="space-y-1">
+              <h1 class="text-xl text-[#1F2937] font-semibold">
+                <span id="count_issue">0</span> Issues
+              </h1>
+              <p class="text-[#64748B]">Track and manage your project issues</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 bg-[#00A96E] rounded-full"></div>
+              <p class="text-[#1F2937]">Open</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 bg-[#A855F7] rounded-full"></div>
+              <p class="text-[#1F2937]">Closed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Issues Count Section End -->
+    </main>
 
     <!-- Script Section -->
-     <script src="./script/script.js"></script>
+    <script src="./script/script.js"></script>
   </body>
 </html>
