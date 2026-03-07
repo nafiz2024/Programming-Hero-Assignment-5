@@ -91,16 +91,23 @@
         <div
           class="mx-auto container mb-4 flex gap-2 p-6 bg-white rounded-lg shadow"
         >
-          <div id="all_btn" class="btn btn-primary w-32 font-semibold">All</div>
+          <div onclick="allIssue()"
+            id="all_btn"
+            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
+          >
+            All
+          </div>
           <div
+          onclick="openIssue()"
             id="open_btn"
-            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white border-[#E4E4E7]"
+            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
           >
             Open
           </div>
           <div
+          onclick="closedIssue()"
             id="closed_btn"
-            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white border-[#E4E4E7]"
+            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
           >
             Closed
           </div>
@@ -121,7 +128,7 @@
             />
             <div class="space-y-1">
               <h1 class="text-xl text-[#1F2937] font-semibold">
-                <span id="count_issue">0</span> Issues
+                <span id="count_issue"></span> Issues
               </h1>
               <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
@@ -279,7 +286,7 @@
                 <p>Updated: 1/16/2024</p>
               </div>
             </div>
-          </div>                  
+          </div>
         </div>
       </section>
       <!-- Issues List Section End -->
