@@ -79,29 +79,29 @@ const displayLoadIssue = (issues) => {
                   ${issue.description}
                 </p>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex flex-col lg:flex-row items-center gap-2">
                 <p
-                  class="py-1.5 px-3 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
+                  class="py-1.5 px-3 w-80 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
                 >
                   <i class="fa-solid fa-bug"></i> ${issue.labels[0]}
                 </p>
                 <p
-                  class="py-1.5 px-3 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
+                  class="py-1.5 px-3 w-80 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
                 >
                   <i class="fa-regular fa-life-ring"></i> ${issue.labels[1]}
                 </p>
               </div>
             </div>
             <div
-              class="border-t border-[#E4E4E7] p-4 bg-white rounded-b-lg shadow space-y-2"
+              class="flex justify-between border-t border-[#E4E4E7] p-4 bg-white rounded-b-lg shadow space-y-2"
             >
-              <div class="flex justify-between text-[#64748B]">
+              <div class=" text-[#64748B]">
                 <p>#<span>${issue.id}</span> by <span>${issue.author}</span></p>
-                <p>Assigned: ${issue.createdAt}</p>
+                <p>Assignee: ${issue.author}</p>                
               </div>
-              <div class="flex justify-between text-[#64748B]">
-                <p>Assignee: ${issue.assignee}</p>
-                <p>Updated: ${issue.updatedAt}</p>
+              <div class=" text-[#64748B]">
+                <p>Assigned: ${new Date(issue.createdAt).toLocaleDateString("en-US")}</p>
+                <p>Updated: ${new Date(issue.updatedAt).toLocaleDateString("en-US")}</p>
               </div>
             </div>
           </div>

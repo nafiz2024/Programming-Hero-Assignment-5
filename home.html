@@ -47,7 +47,9 @@
   <body>
     <!-- Navigation Section Start -->
     <section class="border-b border-[#E9E9E9]">
-      <div class="mx-auto px-20 flex items-center justify-between py-4">
+      <div
+        class="mx-auto px-4 lg:px-20 flex flex-col lg:flex-row items-center justify-between py-4 gap-6"
+      >
         <div class="flex items-center gap-4">
           <img class="w-9" src="./assets/github-logo.png" alt="GitHub Logo" />
           <h1 class="text-2xl text-[#1F2937] font-semibold">
@@ -87,28 +89,28 @@
 
     <main class="bg-[#F8FAFC] h-screen">
       <!-- Button Section Start -->
-      <section class="pt-16">
+      <section class="pt-8 lg:pt-16">
         <div
-          class="mx-auto container mb-4 flex gap-2 p-6 bg-white rounded-lg shadow"
+          class="mx-auto container mb-4 flex justify-center lg:justify-start gap-2 p-6 bg-white rounded-lg shadow"
         >
           <div
             onclick="allIssue()"
             id="all_btn"
-            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
+            class="btn btn-primary btn-outline w-28 lg:w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
           >
             All
           </div>
           <div
             onclick="openIssue()"
             id="open_btn"
-            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
+            class="btn btn-primary btn-outline w-28 lg:w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
           >
             Open
           </div>
           <div
             onclick="closedIssue()"
             id="closed_btn"
-            class="btn btn-primary btn-outline w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
+            class="btn btn-primary btn-outline w-28 lg:w-32 font-semibold text-[#64748B] hover:text-white hover:bg-[#422ad5] border-[#E4E4E7]"
           >
             Closed
           </div>
@@ -119,7 +121,7 @@
       <!-- Issues Count Section Start -->
       <section>
         <div
-          class="mx-auto container flex justify-between items-center p-6 bg-white rounded-t-lg shadow borber-b border-[#E4E4E7]"
+          class="mx-auto container flex flex-col lg:flex-row gap-3 justify-between items-center p-6 bg-white rounded-t-lg shadow borber-b border-[#E4E4E7]"
         >
           <div class="flex gap-2">
             <img
@@ -154,8 +156,8 @@
           id="issues_container"
           class="mx-auto container grid lg:grid-cols-3 bg-[#FBFBFB] p-6 mb-32 rounded-b-lg shadow gap-3"
         >
-          
-        </div>
+       
+      </div>
       </section>
       <!-- Issues List Section End -->
     </main>
