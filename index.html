@@ -45,6 +45,46 @@
     </style>
   </head>
   <body>
-    <h1>GitHub Issues Tracker</h1>
+    <!-- Login Section -->
+    <section
+      class="bg-[#F8FAFC] h-screen mx-auto text-center flex items-center justify-center"
+    >
+      <div class="p-8 bg-white rounded-lg space-y-6">
+        <div class="flex flex-col items-center gap-6">
+          <img src="./assets/github-logo.png" alt="" srcset="" />
+          <div class="space-y-1">
+            <h1 class="text-2xl text-[#1F2937] font-semibold">
+              GitHub Issues Tracker
+            </h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+          </div>
+        </div>
+        <div class="">
+          <fieldset class="fieldset w-sm p-4">
+            <label class="label font-medium text-[#1F2937]">Username</label>
+            <input
+              id="login_input"
+              type="text"
+              class="input w-sm leading-4 text-[#71717A]"
+              placeholder="Enter Username"
+            />
+
+            <label class="label font-medium text-[#1F2937] mt-4"
+              >Password</label
+            >
+            <input
+              id="login_password"
+              type="password"
+              class="input w-sm leading-4 text-[#71717A]"
+              placeholder="Enter Password"
+            />
+
+            <button id="login_btn" class="btn btn-primary mt-6">Login</button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <script src="./script/login.js"></script>
   </body>
 </html>
