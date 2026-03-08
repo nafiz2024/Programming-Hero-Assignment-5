@@ -73,7 +73,7 @@ const displayIssueDetails = (issue) => {
   const div = document.createElement("div")
   div.innerHTML = `
     <dialog id="my_modal_1" class="modal">
-            <div class="modal-box w-auto lg:w-[700px] p-3 lg:p-8 space-y-6">
+            <div class="modal-box w-auto lg:w-[700px] m-4 p-4 lg:p-8 space-y-6">
               <div class="space-y-2">
                 <h1 class="text-[#1F2937] text-2xl font-bold">
                   ${issue.title}
