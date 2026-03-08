@@ -47,7 +47,7 @@ const loadIssueDetails = async (id) => {
   const res = await fetch(issueDetailsURL);
   const details = await res.json();
   const detailsData = details.data;
-        displayIssueDetails(detailsData)
+  displayIssueDetails(detailsData)
 
   // Open the modal
   const modal = document.getElementById('my_modal_1');
@@ -61,34 +61,36 @@ const displayIssueDetails = (issue) => {
   modalContainer.innerHTML = ""
 
   const statusBg = issue.status === "closed"
-      ? "bg-[#E60909]"
-      : "bg-[#00A96E]"
+    ? "bg-[#E60909]"
+    : "bg-[#00A96E]"
 
   const priorityColor = issue.priority === "high"
-      ? "bg-[#EF4444]"
-      : issue.priority === "medium"
-        ? "bg-[#F59E0B]"
-        : "bg-[#9CA3AF]";
+    ? "bg-[#EF4444]"
+    : issue.priority === "medium"
+      ? "bg-[#F59E0B]"
+      : "bg-[#9CA3AF]";
 
   const div = document.createElement("div")
   div.innerHTML = `
     <dialog id="my_modal_1" class="modal">
-            <div class="modal-box w-[700px] p-8 space-y-6">
+            <div class="modal-box w-auto lg:w-[700px] p-3 lg:p-8 space-y-6">
               <div class="space-y-2">
                 <h1 class="text-[#1F2937] text-2xl font-bold">
                   ${issue.title}
                 </h1>
-                <div class="flex items-center gap-2 text-[#64748B]">
+                <div class="flex flex-col lg:flex-row items-center gap-2">
                   <div class="py-1.5 px-4 rounded-full ${statusBg}">
-                    <p class="font-bold text-white">${issue.status}</p>
+                      <p class="font-bold text-white">${issue.status}</p>
                   </div>
-                  <p>•</p>
-                  <p><span>${issue.status}</span> by <span>${issue.author}</span></p>
-                  <p>•</p>
-                  <p>${new Date(issue.createdAt).toLocaleDateString("en-US")}</p>
+                  <div class="flex items-center gap-2 text-[#64748B]">
+                    <p>•</p>
+                    <p><span>${issue.status}</span> by <span>${issue.author}</span></p>
+                    <p>•</p>
+                    <p>${new Date(issue.createdAt).toLocaleDateString("en-US")}</p>
+                  </div>
                 </div>
               </div>
-              <div class="flex gap-2">
+              <div class="flex flex-col lg:flex-row gap-2">
                 <p
                   class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
                 >
@@ -106,7 +108,7 @@ const displayIssueDetails = (issue) => {
                   ${issue.description}
                 </p>
               </div>
-              <div class="grid grid-cols-2 gap-2 p-4 bg-[#F8FAFC] rounded-lg">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 bg-[#F8FAFC] rounded-lg">
                 <div class="space-y-1">
                   <p>Assignee:</p>
                   <p>${issue.assignee}</p>
