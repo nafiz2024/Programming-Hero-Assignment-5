@@ -81,12 +81,12 @@ const displayLoadIssue = (issues) => {
               </div>
               <div class="flex flex-col lg:flex-row items-center gap-2">
                 <p
-                  class="py-1.5 px-3 w-80 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
+                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
                 >
                   <i class="fa-solid fa-bug"></i> ${issue.labels[0]}
                 </p>
                 <p
-                  class="py-1.5 px-3 w-80 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
+                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
                 >
                   <i class="fa-regular fa-life-ring"></i> ${issue.labels[1]}
                 </p>
@@ -131,21 +131,26 @@ const setActive = (btn) => {
 
 const allIssue = () => {
     setActive(allIssuesBtn);
-    const allIssuesLength = allIssues.length;
-    totalIssue.innerText = allIssuesLength;
+    totalIssue.innerText = allIssues.length;
+     
+    displayLoadIssue(allIssues);
 };
 
 const openIssue = () => {
     setActive(openIssuesBtn);
-    const openIssuesLength = allIssues.filter(issue => issue.status === "open").length;
-    totalIssue.innerText = openIssuesLength;
+    const openIssuesLength = allIssues.filter(issue => issue.status === "open");
+    totalIssue.innerText = openIssuesLength.length;
+
+    displayLoadIssue(openIssuesLength)
 
 };
 
 const closedIssue = () => {
     setActive(closedIssuesBtn);
-    const closedIssuesLength = allIssues.filter(issue => issue.status === "closed").length;
-    totalIssue.innerText = closedIssuesLength;
+    const closedIssuesLength = allIssues.filter(issue => issue.status === "closed");
+    totalIssue.innerText = closedIssuesLength.length;
+
+    displayLoadIssue(closedIssuesLength)
 };
 
 
