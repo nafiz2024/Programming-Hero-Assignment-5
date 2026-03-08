@@ -9,7 +9,8 @@ document.getElementById("search_btn").addEventListener("click", function () {
         .then(response => response.json())
         .then(data => {
             const searchData = data.data;
-            console.log("Search results:", searchData)
+            totalIssue.innerText = searchData.length;
+            displayLoadIssue(searchData);
         })
         .catch(error => {
             console.error("Error fetching search results:", error);
