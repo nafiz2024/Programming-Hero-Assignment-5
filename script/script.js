@@ -114,7 +114,7 @@ const displayIssueDetails = (issue) => {
                 <div class="spcae-y-1">
                   <p>Priority:</p>
                   <p
-                    class="flex flex-col lg:flex-row justify-center w-24 py-1 ${priorityColor} text-white font-medium rounded-full"
+                    class="flex justify-center w-24 py-1 ${priorityColor} text-white font-medium rounded-full"
                   >
                     ${issue.priority.toUpperCase()}
                   </p>
@@ -186,7 +186,7 @@ const displayLoadIssue = (issues) => {
               </div>
             </div>
             <div
-              class="flex justify-between border-t border-[#E4E4E7] p-4 bg-white rounded-b-lg shadow space-y-2"
+              class="flex justify-between border-t border-[#E4E4E7] p-3 lg:p-4 bg-white rounded-b-lg shadow space-y-1"
             >
               <div class=" text-[#64748B]">
                 <p>#<span>${issue.id}</span> by <span>${issue.author}</span></p>
