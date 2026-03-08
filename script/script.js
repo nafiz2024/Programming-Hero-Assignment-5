@@ -113,7 +113,7 @@ const displayIssueDetails = (issue) => {
                   <p>Assignee:</p>
                   <p>${issue.assignee}</p>
                 </div>
-                <div class="spcae-y-1">
+                <div class="space-y-1">
                   <p>Priority:</p>
                   <p
                     class="flex justify-center w-24 py-1 ${priorityColor} text-white font-medium rounded-full"
@@ -146,6 +146,10 @@ const displayLoadIssue = (issues) => {
       ? "../assets/close.png"
       : "../assets/open.png";
 
+    const statusBorder = issue.status === "closed"
+      ? "border-t-4 border-purple-500"
+      : "border-t-4 border-green-500";
+
     const priorityColor = issue.priority === "high"
       ? "bg-[#FEECEC] text-[#EF4444]"
       : issue.priority === "medium"
@@ -155,7 +159,7 @@ const displayLoadIssue = (issues) => {
     const div = document.createElement('div');
     div.innerHTML = `
         <div class=""  onclick="loadIssueDetails(${issue.id})" >
-            <div class="p-4 bg-white rounded-t-lg shadow space-y-3">
+            <div class="p-4 bg-white rounded-t-lg shadow space-y-3 ${statusBorder}">
               <div class="mx-auto flex text-center justify-between">
                 <div>
                     <img src="${statusIcon}" />
