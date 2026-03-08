@@ -1,4 +1,14 @@
-/* * Script for handling search functionality on the home page */
+/* Script for handling Data labels on the card */
+const createElements = (arr) => {
+  const htmlElements = arr.map((el) => `<span>${el}</span>`)
+  return (htmlElements.join(" "))
+
+}
+
+const labels = ["bug", "Help", "enn"];
+createElements(labels) 
+
+/* Script for handling search functionality on the home page */
 document.getElementById("search_btn").addEventListener("click", function () {
   const searchInput = document.getElementById("search_input").value.toLowerCase();
 
@@ -17,30 +27,7 @@ document.getElementById("search_btn").addEventListener("click", function () {
     });
 });
 
-/* * Script for Issue Count functionality on the home page */
-const totalIssue = document.getElementById("count_issue");
-
-let allIssues = [];
-
-const loadIssue = () => {
-  const allIssuesURL = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
-
-  fetch(allIssuesURL)
-    .then(response => response.json())
-    .then(data => {
-      allIssues = data.data || [];
-      displayLoadIssue(allIssues)
-      // Total Issues
-      const totalIssueLength = allIssues.length;
-      totalIssue.innerText = totalIssueLength;
-
-    })
-    .catch(error => {
-      console.error("Error fetching issue count:", error);
-    });
-};
-
-/* Issue Details functionality on the home page */
+/* Script for Issue Details functionality on the home page */
 const loadIssueDetails = async (id) => {
   const issueDetailsURL = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
 
@@ -55,7 +42,7 @@ const loadIssueDetails = async (id) => {
     modal.showModal();
   }
 }
-
+/* Script for Issue Details Modal functionality on the home page */
 const displayIssueDetails = (issue) => {
   const modalContainer = document.getElementById("modal_container");
   modalContainer.innerHTML = ""
@@ -134,8 +121,30 @@ const displayIssueDetails = (issue) => {
   modalContainer.appendChild(div);
 }
 
-/* Issues Display Function handling */
+/* * Script for Issue Display functionality on the home page */
+const totalIssue = document.getElementById("count_issue");
 
+let allIssues = [];
+
+const loadIssue = () => {
+  const allIssuesURL = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
+
+  fetch(allIssuesURL)
+    .then(response => response.json())
+    .then(data => {
+      allIssues = data.data || [];
+      displayLoadIssue(allIssues)
+      // Total Issues
+      const totalIssueLength = allIssues.length;
+      totalIssue.innerText = totalIssueLength;
+
+    })
+    .catch(error => {
+      console.error("Error fetching issue count:", error);
+    });
+};
+
+/* Script for Issues Display Function handling */
 const displayLoadIssue = (issues) => {
   const issuesContainer = document.getElementById("issues_container")
   issuesContainer.innerHTML = " ";
@@ -210,7 +219,7 @@ const displayLoadIssue = (issues) => {
 
 }
 
-/* Active Button Handling */
+/* Script for Active Button function Handling */
 const allIssuesBtn = document.getElementById("all_btn");
 const openIssuesBtn = document.getElementById("open_btn");
 const closedIssuesBtn = document.getElementById("closed_btn");
@@ -228,6 +237,7 @@ const setActive = (btn) => {
   btn.classList.add("btn-primary", "text-white");
 }
 
+/* Script for Active All Issues Button function Handling */
 const allIssue = () => {
   setActive(allIssuesBtn);
   totalIssue.innerText = allIssues.length;
@@ -235,6 +245,7 @@ const allIssue = () => {
   displayLoadIssue(allIssues);
 };
 
+/* Script for Active Open Issues Button function Handling */
 const openIssue = () => {
   setActive(openIssuesBtn);
   const openIssuesLength = allIssues.filter(issue => issue.status === "open");
@@ -244,6 +255,7 @@ const openIssue = () => {
 
 };
 
+/* Script for Active Close Issues Button function Handling */
 const closedIssue = () => {
   setActive(closedIssuesBtn);
   const closedIssuesLength = allIssues.filter(issue => issue.status === "closed");
