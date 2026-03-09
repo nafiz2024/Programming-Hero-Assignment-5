@@ -136,7 +136,7 @@
               <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
           </div>
-          <div class="flex gap-4">
+          <div class="flex gap-4 bg-[#64748B]/10 px-4 py-3 rounded-lg shadow">
             <div class="flex items-center gap-2">
               <div class="w-3 h-3 bg-[#00A96E] rounded-full"></div>
               <p class="text-[#1F2937]">Open</p>
@@ -150,6 +150,17 @@
       </section>
       <!-- Issues Count Section End -->
 
+      <!-- Loading Section Start -->
+      <section>
+        <div
+          class="flex justify-center items-center py-10 hidden"
+          id="loading_container"
+        >
+          <span class="loading loading-bars loading-xl"></span>
+        </div>
+      </section>
+      <!-- Loading Section End -->
+
       <!-- Issues List Section Start -->
       <section>
         <div
@@ -161,9 +172,7 @@
 
       <!-- Issue Details Section Start -->
       <section>
-        <div id="modal_container" class="">
-          
-        </div>
+        <div id="modal_container" class=""></div>
       </section>
       <!-- Issue Details Section End -->
     </main>

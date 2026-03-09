@@ -7,11 +7,11 @@ const createElements = (arr) => {
     if (el === "BUG") {
       colorClass = "bg-[#FEECEC] text-[#EF4444]";
       iconClass = `<i class="fa-solid fa-bug"></i>`;
-    } 
+    }
     else if (el === "HELP WANTED") {
       colorClass = "bg-[#FFF8DB] text-[#D97706]";
       iconClass = `<i class="fa-regular fa-life-ring"></i>`;
-    } 
+    }
     else {
       colorClass = "bg-[#BBF7D0] text-[#00A96E]";
       iconClass = `<i class="fa-solid fa-wand-magic-sparkles"></i>`;
@@ -132,14 +132,18 @@ const totalIssue = document.getElementById("count_issue");
 let allIssues = [];
 
 const loadIssue = () => {
-  const allIssuesURL = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
+  displayLoading(true) // loading show
 
+  const allIssuesURL = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
 
   fetch(allIssuesURL)
     .then(response => response.json())
     .then(data => {
       allIssues = data.data || [];
       displayLoadIssue(allIssues)
+
+      displayLoading(false);
+
       // Total Issues
       const totalIssueLength = allIssues.length;
       totalIssue.innerText = totalIssueLength;
@@ -147,6 +151,8 @@ const loadIssue = () => {
     })
     .catch(error => {
       console.error("Error fetching issue count:", error);
+
+      displayLoading(false);
     });
 };
 
@@ -162,8 +168,8 @@ const displayLoadIssue = (issues) => {
       : "../assets/open.png";
 
     const statusBorder = issue.status === "closed"
-      ? "border-t-4 border-purple-500"
-      : "border-t-4 border-green-500";
+      ? "border-t-4 border-[#A855F7]"
+      : "border-t-4 border-[#00A96E]";
 
     const priorityColor = issue.priority === "high"
       ? "bg-[#FEECEC] text-[#EF4444]"
@@ -202,7 +208,7 @@ const displayLoadIssue = (issues) => {
             >
               <div class=" text-[#64748B]">
                 <p>#<span>${issue.id}</span> by <span>${issue.author}</span></p>
-                <p>Assignee: ${issue.author}</p>                
+                <p>Assignee: ${issue.assignee}</p>                
               </div>
               <div class=" text-[#64748B]">
                 <p>Assigned: ${new Date(issue.createdAt).toLocaleDateString("en-US")}</p>
@@ -214,6 +220,21 @@ const displayLoadIssue = (issues) => {
     issuesContainer.appendChild(div);
   });
 
+}
+
+/* Script for Loading Function handling */
+const displayLoading = (isLoading) => {
+  const loadingContainer = document.getElementById('loading_container');
+  const issuesContainer = document.getElementById('issues_container');
+
+  if (isLoading) {
+    loadingContainer.classList.remove('hidden');
+    issuesContainer.classList.add('hidden');
+
+  } else {
+    loadingContainer.classList.add('hidden');
+    issuesContainer.classList.remove('hidden');
+  }
 }
 
 /* Script for Active Button function Handling */
