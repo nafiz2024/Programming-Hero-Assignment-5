@@ -1,12 +1,27 @@
 /* Script for handling Data labels on the card */
 const createElements = (arr) => {
-  const htmlElements = arr.map((el) => `<span>${el}</span>`)
-  return (htmlElements.join(" "))
+  const htmlElements = arr.map((el) => {
+    let colorClass = "";
+    let iconClass = "";
 
+    if (el === "BUG") {
+      colorClass = "bg-[#FEECEC] text-[#EF4444]";
+      iconClass = `<i class="fa-solid fa-bug"></i>`;
+    } 
+    else if (el === "HELP WANTED") {
+      colorClass = "bg-[#FFF8DB] text-[#D97706]";
+      iconClass = `<i class="fa-regular fa-life-ring"></i>`;
+    } 
+    else {
+      colorClass = "bg-[#BBF7D0] text-[#00A96E]";
+      iconClass = `<i class="fa-solid fa-wand-magic-sparkles"></i>`;
+    }
+
+    return `<p class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 font-medium rounded-full ${colorClass}">${iconClass} ${el}</p>`
+  })
+  return (htmlElements.join(" "))
 }
 
-const labels = ["bug", "Help", "enn"];
-createElements(labels) 
 
 /* Script for handling search functionality on the home page */
 document.getElementById("search_btn").addEventListener("click", function () {
@@ -78,17 +93,7 @@ const displayIssueDetails = (issue) => {
                 </div>
               </div>
               <div class="flex flex-col lg:flex-row gap-2">
-                <p
-                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
-                >
-                  <i class="fa-solid fa-bug"></i> ${issue.labels[0]}
-                </p>
-
-                <p
-                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
-                >
-                  <i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}
-                </p>
+                ${createElements(issue.labels.map(label => label.toUpperCase()))}
               </div>
               <div class="">
                 <p class="text-[#64748B]">
@@ -128,6 +133,7 @@ let allIssues = [];
 
 const loadIssue = () => {
   const allIssuesURL = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
+
 
   fetch(allIssuesURL)
     .then(response => response.json())
@@ -188,16 +194,7 @@ const displayLoadIssue = (issues) => {
                 </p>
               </div>
               <div class="flex flex-col lg:flex-row items-center gap-2">
-                <p
-                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FEECEC] text-[#EF4444] font-medium rounded-full"
-                >
-                  <i class="fa-solid fa-bug"></i> ${issue.labels[0]}
-                </p>
-                <p
-                  class="py-1.5 px-3 w-72 lg:w-auto mx-auto text-center lg:mx-0 bg-[#FFF8DB] text-[#D97706] font-medium rounded-full"
-                >
-                  <i class="fa-regular fa-life-ring"></i> ${issue.labels[1]}
-                </p>
+                ${createElements(issue.labels.map(label => label.toUpperCase()))}
               </div>
             </div>
             <div
