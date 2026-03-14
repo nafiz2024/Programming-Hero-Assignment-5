@@ -11,7 +11,7 @@ It provides a clean interface where users can view all issues, filter them by **
 
 ## 🚀 Live Demo
 
-🔗 Live Website: https://your-live-link.com  
+🔗 Live Website: https://github-issue-trakerr.netlify.app/  
 🔗 GitHub Repository: https://github.com/your-username/github-issues-tracker
 
 ---
@@ -54,17 +54,17 @@ It provides a clean interface where users can view all issues, filter them by **
 
 ## 📂 Project Structure
 github-issues-tracker
-│
-├── assets
-│ ├── github-logo.png
-│ ├── Aperture.png
-│ └── other images
-│
-├── script
-│ └── script.js
-│
-├── index.html
-└── README.md
+- │
+- ├── assets
+- │ ├── github-logo.png
+- │ ├── Aperture.png
+- │ └── other images
+- │
+- ├── script
+- │ └── script.js
+- │
+- ├── index.html
+- └── README.md
 
 
 ---
